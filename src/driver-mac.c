@@ -1,3 +1,4 @@
+#include "driver-mac.h"
 #include "driver.h"
 #include <stdio.h>
 #include <stdlib.h>

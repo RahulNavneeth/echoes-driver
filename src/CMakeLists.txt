@@ -1,6 +1,8 @@
 file(GLOB SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/main.c
-	${CMAKE_CURRENT_SOURCE_DIR}/driver.c
+	${CMAKE_CURRENT_SOURCE_DIR}/driver-mac.c
+	${CMAKE_CURRENT_SOURCE_DIR}/driver-linux.c
+	${CMAKE_CURRENT_SOURCE_DIR}/driver-windows.c
 )
 
 add_executable(main ${SOURCES})
