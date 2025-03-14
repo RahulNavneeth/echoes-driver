@@ -11,11 +11,9 @@ void write_sound_windows_impl() {
 DriverIMPL *init_driver_windows_impl(char *driver_name) {
   DriverWindowsIMPL *new_mac_driver =
       (DriverWindowsIMPL *)malloc(sizeof(DriverWindowsIMPL));
-  DriverIMPL *new_base_driver = (DriverIMPL *)malloc(sizeof(DriverIMPL));
-  if (new_mac_driver == NULL || new_base_driver == NULL)
+  if (new_mac_driver == NULL)
     return NULL;
   new_mac_driver->driver_name = driver_name;
-  new_mac_driver->base = new_base_driver;
-  new_mac_driver->base->write = write_sound_windows_impl;
+  new_mac_driver->base.write = write_sound_windows_impl;
   return (DriverIMPL *)new_mac_driver;
 }

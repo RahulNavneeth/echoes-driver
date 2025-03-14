@@ -1,11 +1,11 @@
-#include "driver.h"
-#include <stdio.h>
-
 #ifndef DRIVER_MAC_H
 #define DRIVER_MAC_H
 
+#include "driver.h"
+#include <stdio.h>
+
 typedef struct {
-  DriverIMPL *base;
+  DriverIMPL base;
   char *driver_name;
 } DriverMacIMPL;
 
