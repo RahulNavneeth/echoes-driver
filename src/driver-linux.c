@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void write_sound_linux_impl() {
+void write_sound_linux_impl(DriverIMPL *base) {
   printf("Sound Written - linux\n");
   /* implement sound card write function - linux */
 }

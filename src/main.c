@@ -11,12 +11,8 @@ int32_t main() {
 
 #ifdef __APPLE__
   impl = init_driver_mac_impl("Rahul M. Navneeth : Mac");
-  printf("Driver Name: %s\n",
-         GET_PARENT_IMPL(DriverMacIMPL, impl)->driver_name);
 #elif defined(__unix__)
   impl = init_driver_linux_impl("Rahul M. Navneeth : Linux");
-  printf("Driver Name: %s\n",
-         GET_PARENT_IMPL(DriverLinuxIMPL, impl)->driver_name);
 #elif defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
   impl = init_driver_window_impl("Rahul M. Navneeth : Windows");
 #endif
@@ -26,7 +22,8 @@ int32_t main() {
     return 1;
   }
 
-  impl->write();
+  printf("Driver Name : %s\n", impl->get_driver_name(impl));
+  impl->write(impl);
 
   return 0;
 }

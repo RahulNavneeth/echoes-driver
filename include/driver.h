@@ -6,7 +6,8 @@
 #define GET_PARENT_IMPL(type, base_driver) ((type *)base_driver)
 
 typedef struct DriverIMPL {
-  void (*write)();
+  void (*write)(struct DriverIMPL *);
+  char *(*get_driver_name)(struct DriverIMPL *);
   /* other functions  */
 } DriverIMPL;
 

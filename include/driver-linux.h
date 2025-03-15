@@ -11,6 +11,6 @@ typedef struct {
 
 DriverIMPL *init_driver_linux_impl(char *);
 
-void write_sound_linux_impl();
+void write_sound_linux_impl(DriverIMPL *);
 
 #endif /* DRIVER_WINDOWS_H */
