@@ -18,6 +18,7 @@ int32_t main() {
 #endif
 
   if (impl == NULL) {
+    free(impl);
     printf("Err: Driver Impl is NULL\n");
     return 1;
   }
@@ -25,5 +26,6 @@ int32_t main() {
   printf("Driver Name : %s\n", impl->get_driver_name(impl));
   impl->write(impl);
 
+  free(impl);
   return 0;
 }

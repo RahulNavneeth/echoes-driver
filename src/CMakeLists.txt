@@ -7,3 +7,7 @@ file(GLOB SOURCES
 
 add_executable(main ${SOURCES})
 set_target_properties(main PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+if (APPLE)
+	target_link_libraries(main "-framework CoreAudio" "-framework AudioToolbox" "-framework AudioUnit" "-framework CoreFoundation" "-Wall" "-arch arm64")
+endif()
