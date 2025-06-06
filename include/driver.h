@@ -1,6 +1,7 @@
 #ifndef DRIVER_H
 #define DRIVER_H
 
+#include <stdbool.h>
 #include <stdio.h>
 
 /* TODO : get from arg */

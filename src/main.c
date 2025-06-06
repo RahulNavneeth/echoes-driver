@@ -19,6 +19,22 @@ void set_raw_mode(int enable) {
   }
 }
 
+void sample_input_capture() {
+  /* Sample input capturing */
+  char ch;
+  set_raw_mode(1);
+  while (1) {
+    ch = getchar();
+
+    write_audio(
+        generate_test_tone(440.0 * pow(1.05946309436, (int)ch % 97), 0.5, 0.3));
+
+    if (ch == '*')
+      break;
+  }
+  set_raw_mode(0);
+}
+
 int32_t main() {
   printf("Echoes Driver!!!\n");
 
@@ -29,20 +45,15 @@ int32_t main() {
   printf("Driver Name : %s\n", impl->get_driver_name(impl));
 
   /* impl->sound_check() */;
+  sample_input_capture();
 
-  /* Sample input capturing */
+  /* Wait for the function call */
   char ch;
-  set_raw_mode(1);
   while (1) {
     ch = getchar();
-
-    write_audio(
-        generate_test_tone(440.0 * pow(1.05946309436, (int)ch % 97), 0.3, 0.5));
-
-    if (ch == '\n')
+    if (ch == '*')
       break;
   }
-  set_raw_mode(0);
 
   cleanup_audio_driver();
   return 0;
